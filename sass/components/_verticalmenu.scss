@@ -1,0 +1,58 @@
+.content {
+  &__vertical-menu {
+    @include respond(phone) {
+      display: none;
+    }
+  }
+
+  &__vertical-menu-heading {
+    padding: 2rem 2rem 0;
+    color: $color-darkerblue;
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    @include respond(tab) {
+      display: none;
+    }
+  }
+
+  &__vertical-menu-list {
+    list-style: none;
+  }
+
+  &__vertical-menu-item {
+    padding: 1.5rem 2rem;
+    margin: 1.5rem 0;
+    transition: all 0.3s ease-in-out;
+
+    &:hover,
+    &:active {
+      color: $color-white;
+      background-color: $color-grey;
+    }
+
+    .bx {
+      display: inline-block;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: $color-lightblue;
+      margin-right: 1.5rem;
+      vertical-align: middle;
+
+      @include respond(tab) {
+        margin-left: 1.2rem;
+      }
+    }
+  }
+
+  &__vertical-menu-title {
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: $color-lightblue;
+    vertical-align: middle;
+
+    @include respond(tab) {
+      display: none;
+    }
+  }
+}

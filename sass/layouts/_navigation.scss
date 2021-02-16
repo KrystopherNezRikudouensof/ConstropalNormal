@@ -1,0 +1,275 @@
+.nav {
+  // position: relative;
+
+  &__mobile-view {
+    display: none;
+
+    #toggle {
+      display: none;
+    }
+
+    #search {
+      display: none;
+      //display: block;
+      font-size: 1.8rem;
+      position: absolute;
+      padding: 1rem 1.5rem;
+      top: 7.5rem;
+      width: 90%;
+      margin: 0 auto;
+      border: 1px solid $color-lightblue;
+      border-radius: 0.5rem;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    label {
+      display: inline-block;
+      font-size: 2rem;
+      margin-top: 0.5rem;
+
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+
+    @include respond(phone) {
+      display: block;
+      position: fixed;
+      height: 7.5rem;
+      width: 100%;
+      background-color: $color-white;
+      box-shadow: $box-shadow;
+      z-index: 9999;
+    }
+  }
+
+  &__mobile-menu {
+    display: none;
+    position: fixed;
+    top: 7.5rem;
+    bottom: 0;
+    left: 0;
+    width: 45%;
+    padding: 2rem 1rem;
+    background-color: $color-darkblue;
+    z-index: 1000;
+    overflow-y: scroll;
+
+    @include respond(sm-phone) {
+      width: 70%;
+    }
+  }
+
+  #toggle:checked + &__mobile-menu {
+    display: inline-block;
+  }
+
+  &__menu-link {
+    display: block;
+    font-size: 1.6rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    text-decoration: none;
+    color: $color-lightblue;
+
+    transition: all 0.2s ease-in-out;
+
+    &:hover,
+    &:active {
+      color: $color-white;
+      background-color: $color-grey;
+    }
+
+    i {
+      display: inline-block;
+      margin-right: 1rem;
+    }
+
+    span {
+      display: inline-block;
+    }
+  }
+
+  &__menu-heading {
+    padding: 0 1rem;
+    color: $color-darkerblue;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  #user-photo {
+    display: inline-block;
+    width: 3.2rem;
+    height: 3.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: $color-grey-dark;
+    overflow: hidden;
+    position: relative;
+    top: 0.5rem;
+
+    @include respond(phone) {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .mobile-menu-icon {
+    position: absolute;
+    top: 1.29rem;
+    right: 3rem;
+  }
+}
+
+body > nav > div > label[for="toggle"] {
+  position: relative;
+  top: 2rem;
+  left: 2rem;
+  font-size: 2.4rem;
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include respond(phone) {
+    display: none;
+  }
+
+  &__d-flex {
+    display: flex;
+    align-items: center;
+  }
+
+  &__brand {
+    align-self: stretch;
+    flex: 0 0 25rem;
+    font-size: 2.6rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    color: $color-white;
+    background-color: $color-darkblue;
+
+    @include respond(tab) {
+      flex: 0 0 10rem;
+    }
+  }
+
+  &__form {
+    position: relative;
+    flex: 0 0 35rem;
+    padding: 2rem 1.5rem;
+
+    @include respond(tab) {
+      display: none;
+    }
+  }
+
+  &__search {
+    border: none;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background-color: #f3f3f9;
+    border-radius: 3rem;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $color-grey;
+      font-size: 1.4rem;
+    }
+  }
+
+  .search-icon {
+    display: inline-block;
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  &__dropdown {
+    flex: 0 0 10rem;
+    font-size: 1.4rem;
+    text-align: center;
+    //padding-top: 2.3rem;
+
+    @include respond(tab) {
+      display: none;
+    }
+  }
+
+  &__customize,
+  &__multiple,
+  &__notification,
+  &__settings {
+    display: inline-block;
+    font-size: 1.8rem;
+    margin-right: 2rem;
+    cursor: pointer;
+  }
+
+  &__searchicon {
+    display: none;
+
+    @include respond(tab) {
+      display: inline-block;
+      font-size: 1.8rem;
+      margin-right: 2rem;
+      cursor: pointer;
+    }
+  }
+
+  &__user {
+    display: inline-block;
+    font-size: 1.4rem;
+    margin-right: 2rem;
+    cursor: pointer;
+  }
+
+  &__user-photo {
+    display: inline-block;
+    width: 3.2rem;
+    height: 3.2rem;
+    cursor: pointer;
+    margin-right: 1rem;
+    border-radius: 50%;
+    background-color: $color-grey-dark;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+/* =========================*/
+/* Sticky Navigation
+/* =========================*/
+
+.sticky .main_nav {
+  margin-top: 15px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  // background-color: rgba(255, 255, 255, 0.98);
+  -webkit-box-shadow: 0 2px 2px #efefef;
+  box-shadow: 0 2px 2px #efefef;
+  z-index: 99999;
+}
